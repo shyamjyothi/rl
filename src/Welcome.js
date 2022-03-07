@@ -1,6 +1,6 @@
 
-import Home1 from './home1.png'
-import Home2 from './home2.png'
+import Home_1 from './HomeImage.png'
+import Home_2 from './HomeImage2.png'
 
 function Welcome() {
 
@@ -9,11 +9,11 @@ function Welcome() {
         <h1>READERS LOG</h1>
         <p className="lead">
             <strong>Readers Log</strong> is a website where you can log the Books that you have read.
-            <strong>Readers Log</strong> would help in keeping a track of the Books that you have read over the years.
+            <strong>Readers Log</strong> would help you in keeping a track of the Books that you have read over the years.
         </p>
         <p className="lead">
-          <img src={Home1} className="img-fluid" />
-          <img src={Home2} className="img-fluid" />
+          <img src={Home_1} className="img-fluid" />
+          <img src={Home_2} className="img-fluid" />
         </p>
         
       </main>
