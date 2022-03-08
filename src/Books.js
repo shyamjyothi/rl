@@ -3,12 +3,9 @@ import {AddBtn,EditBtn,DeleteBtn} from './Icons';
 
 function Books() {
 
-    const marginTop = {
-        'margin-top': '6px'
-    }
-    const marginLeft = {
-        'margin-left': '6px'
-    }
+    const marginTop = {'margin-top': '6px'}
+ 
+
     return (
         
         <div className="container">
@@ -87,7 +84,10 @@ function Books() {
       
 
     )
+
+
 }
+
 
 
 
