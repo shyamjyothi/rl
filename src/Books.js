@@ -1,10 +1,13 @@
 
+import {Component} from 'react';
 import {AddBtn,EditBtn,DeleteBtn} from './Icons';
 
-function Books() {
+class Books extends Component {
 
-    const marginTop = {'margin-top': '6px'}
+   
  
+
+    render() {
 
     return (
         
@@ -13,7 +16,7 @@ function Books() {
                 <div className="col-4">
                     <h1>READERS LOG</h1>
                 </div>           
-                <div className="col-8 text-end" style={marginTop} >
+                <div className="col-8 text-end" style={{marginTop:"6px"}} >
                     <AddBtn />
                 </div>
             </div>
@@ -84,6 +87,7 @@ function Books() {
       
 
     )
+    }
 
 
 }

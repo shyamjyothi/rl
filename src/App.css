@@ -40,3 +40,17 @@
 .Add-Btn-Adjust {
   margin-top: -6px;
 }
+
+.Login-Btn {
+  color:white;
+  text-decoration: none;
+}
+
+.show {
+  display:block;
+}
+
+.hide {
+  display:none;
+}
+
