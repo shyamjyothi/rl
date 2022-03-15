@@ -54,3 +54,22 @@
   display:none;
 }
 
+.mand {
+  color:red !important;
+  font-weight: bold;
+}
+
+.border {
+  border: solid 1px black;
+}
+
+.userProfile {
+  color: black !important;
+  font-size: small;
+}
+
+.course {
+  color:white;
+  text-decoration: none;
+  
+}
