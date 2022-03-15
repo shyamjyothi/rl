@@ -5,9 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 //AWS Dynamo API Keys
 AWS.config.update({
-    region: "us-east-1",
-    accessKeyId: "AKIAWTHG4KERZ7JL5WPE",
-    secretAccessKey:  "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"
+    region: "",
+    accessKeyId: "",
+    secretAccessKey:  ""
 })
 
 //Constant Variables

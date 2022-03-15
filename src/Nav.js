@@ -7,6 +7,8 @@ import "bootstrap/js/src/collapse.js";
 import 'bootstrap/js/src/modal.js'
 import {Link} from 'react-router-dom';
 import Login from './Login';
+import Register from './Register';
+import RouteComponent from './RouteComponent';
 
 class Nav extends Component {
 
@@ -16,7 +18,10 @@ class Nav extends Component {
     this.hideLogin = this.hideLogin.bind(this);
     this.showRegister = this.showRegister.bind(this);
     this.hideRegister = this.hideRegister.bind(this);
-    this.state = ({showLoginUI: false,showRegisterUI: false});
+    this.setUserName = this.setUserName.bind(this);
+    this.state = ({showLoginUI: false,showRegisterUI: false, userName: localStorage.getItem("rl_user_name")});
+    
+
   }
 
   showLogin = () => {
@@ -35,13 +40,15 @@ class Nav extends Component {
     this.setState({showRegisterUI: false});
   }
 
-
-
+  setUserName = () => {
+    this.setState({userName: localStorage.getItem("rl_user_name")})
+  }
 
 
 
   render() {
-      return (           
+      return (    
+        <div>       
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark">         
               <a className="navbar-brand">
                   <img src={rl_logo} alt="" width="42" height="42" className="d-inline-bloc align-text-center" />RL
@@ -59,16 +66,29 @@ class Nav extends Component {
                   </li>                
                 </ul>
                 <form className="d-flex">
-                  <button className="btn btn-secondary btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button"><Link className="Login-Btn" to="/Books">Register</Link></button> &nbsp;&nbsp;
-                  <button className="btn btn-secondary btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button" onClick={this.showLogin}>Login</button>&nbsp;&nbsp;&nbsp;
+                  <button className="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button" onClick={this.showRegister}>Register</button> &nbsp;&nbsp;
+                  <button className="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button" onClick={this.showLogin}>Login</button>&nbsp;&nbsp;
+                  <button className="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button"><Link to="/video" className="course">Course</Link></button> &nbsp;&nbsp;
                 </form>
                 {/* Modal Popups Starts*/}
 
-                { this.state.showLoginUI ? <Login updateState={this.hideLogin}/> : <div></div> }
+
+                { this.state.showLoginUI ? <RouteComponent setuserName={this.setUserName}  updateState={this.hideLogin} Component = {Login} /> : <div></div> }
+                { this.state.showRegisterUI ? <RouteComponent setuserName={this.setUserName}  updateState={this.hideRegister} Component = {Register} /> : <div></div> }
 
                 {/*Modal Popups Ends*/}
+
+              
               </div>
+              
           </nav> 
+
+        { this.state.userName != '' ? 
+          <div className="nav justify-content-end">
+            <span> <strong>{this.state.userName}</strong></span>
+            </div> : <div></div> }
+
+        </div>
       );
     }
   }
