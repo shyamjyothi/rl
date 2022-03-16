@@ -68,7 +68,7 @@ class Nav extends Component {
                 <form className="d-flex">
                   <button className="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button" onClick={this.showRegister}>Register</button> &nbsp;&nbsp;
                   <button className="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button" onClick={this.showLogin}>Login</button>&nbsp;&nbsp;
-                  <button className="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button"><Link to="/video" className="course">Course</Link></button> &nbsp;&nbsp;
+               
                 </form>
                 {/* Modal Popups Starts*/}
 
