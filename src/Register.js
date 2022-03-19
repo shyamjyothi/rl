@@ -8,9 +8,9 @@ var passwordValidator = require('password-validator');
 
 //AWS Dynamo API Keys
 AWS.config.update({
-    region: "",
-    accessKeyId: "",
-    secretAccessKey:  ""
+  region: process.env.REACT_APP_region,
+  accessKeyId: process.env.REACT_APP_accessKeyId,
+  secretAccessKey:  process.env.REACTAPP_secretAccessKey
 })
 
 //Constant Variables
@@ -71,7 +71,7 @@ class Register extends Component {
       return false;
     }
     if(this.state.pwd.length <= 8 || this.state.pwd.indexOf(' ') > -1 ) {
-      this.setState({errMsgClass: 'alert alert-danger show', errMsg: "Password doesnt meet the requirements. Password nust be minimum 8 characters long."});
+      this.setState({errMsgClass: 'alert alert-danger show', errMsg: "Password doesnt meet the requirements. Password must be minimum 8 characters long."});
       return false;
     }
     return true;

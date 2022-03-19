@@ -3,11 +3,12 @@ import AWS from 'aws-sdk';
 import { v4 as uuidv4 } from 'uuid';
 
 
+
 //AWS Dynamo API Keys
 AWS.config.update({
-    region: "",
-    accessKeyId: "",
-    secretAccessKey:  ""
+    region: process.env.REACT_APP_region,
+    accessKeyId: process.env.REACT_APP_accessKeyId,
+    secretAccessKey:  process.env.REACTAPP_secretAccessKey
 })
 
 //Constant Variables
@@ -20,6 +21,7 @@ class AddBook extends Component {
         super(props);
         this.hideAdd = this.hideAdd.bind(this);
         this.addBook = this.addBook.bind(this);
+        this.refresh = this.refresh.bind(this);
         this.state = {
             showAddBook: false,
             bookname: '',
@@ -35,6 +37,10 @@ class AddBook extends Component {
 
     hideAdd = () => {
         this.props.hideAdd();
+    }
+
+    refresh = () => {
+        this.props.refresh();
     }
 
     addBook = () => {
@@ -74,7 +80,9 @@ class AddBook extends Component {
        
         var result = await dynamoClient.put(create_params).promise();
         this.hideAdd();
-        //refresh books screen.
+        //refresh books screen
+        console.log("refesh books")
+        this.props.refresh();
 
 
 

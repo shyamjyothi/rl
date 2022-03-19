@@ -5,6 +5,7 @@ import './App.css';
 import "bootstrap/js/src/button.js";
 import "bootstrap/js/src/collapse.js";
 import 'bootstrap/js/src/modal.js'
+import 'bootstrap/js/src/carousel.js'
 import {Link} from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
@@ -19,8 +20,8 @@ class Nav extends Component {
     this.showRegister = this.showRegister.bind(this);
     this.hideRegister = this.hideRegister.bind(this);
     this.setUserName = this.setUserName.bind(this);
-    this.state = ({showLoginUI: false,showRegisterUI: false, userName: localStorage.getItem("rl_user_name")});
-    
+    this.logOff = this.logOff.bind(this);
+    this.state = ({showLoginUI: false,showRegisterUI: false, userName: localStorage.getItem("rl_user_name")});   
 
   }
 
@@ -28,8 +29,11 @@ class Nav extends Component {
     this.setState({showLoginUI: true});
   }
 
-  hideLogin = () => {
-    this.setState({showLoginUI: false});
+  hideLogin = (success) => {
+      this.setState({showLoginUI: false});
+      if(success) {
+        this.setUserName();
+      }
   }
 
   showRegister = () => {
@@ -42,6 +46,12 @@ class Nav extends Component {
 
   setUserName = () => {
     this.setState({userName: localStorage.getItem("rl_user_name")})
+  }
+
+  logOff = () => {
+    localStorage.removeItem("rl_user_name");
+    localStorage.removeItem("rl_user_id");
+    this.setState({userName: ''})
   }
 
 
@@ -68,7 +78,7 @@ class Nav extends Component {
                 <form className="d-flex">
                   <button className="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button" onClick={this.showRegister}>Register</button> &nbsp;&nbsp;
                   <button className="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button" onClick={this.showLogin}>Login</button>&nbsp;&nbsp;
-                  <button className="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button"><Link to="/video" className="course">Course</Link></button> &nbsp;&nbsp;
+                  {/*<button className="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button"><Link to="/video" className="course">Course</Link></button> &nbsp;&nbsp; */}
                 </form>
                 {/* Modal Popups Starts*/}
 
@@ -86,6 +96,12 @@ class Nav extends Component {
         { this.state.userName != '' ? 
           <div className="nav justify-content-end">
             <span> <strong>{this.state.userName}</strong></span>
+            <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16" className="signout-btn" onClick={this.logOff}>
+              <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"/>
+              <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+          </svg>
+            </div>
             </div> : <div></div> }
 
         </div>

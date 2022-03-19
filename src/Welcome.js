@@ -2,6 +2,7 @@
 import Home_1 from './HomeImage.png'
 import Home_2 from './HomeImage2.png'
 
+
 function Welcome() {
 
   var userName = localStorage.getItem("rl_username");

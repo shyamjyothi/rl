@@ -73,3 +73,13 @@
   text-decoration: none;
   
 }
+
+.del-btn {
+    margin-left: '6px';
+    cursor: pointer
+}
+
+.signout-btn {
+  margin-left: '6px';
+  cursor: pointer
+}

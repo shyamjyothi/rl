@@ -7,9 +7,9 @@ import bcrypt from 'bcryptjs';
 
 //AWS Dynamo API Keys
 AWS.config.update({
-  region: "",
-  accessKeyId: "",
-  secretAccessKey:  ""
+  region: process.env.REACT_APP_region,
+  accessKeyId: process.env.REACT_APP_accessKeyId,
+  secretAccessKey:  process.env.REACTAPP_secretAccessKey
 })
 
 const dynamoClient = new AWS.DynamoDB.DocumentClient();
@@ -35,7 +35,7 @@ class Login extends Component {
     }
 
     hideLogin = () => {
-        this.props.updateState();
+        this.props.updateState();    
     }
 
     validate = () => {
@@ -69,10 +69,8 @@ class Login extends Component {
         if(res === true) {
           localStorage.setItem("rl_user_name", "Welcome " + result.Item.first_name + " " + result.Item.last_name)
           localStorage.setItem("rl_user_id", result.Item.user_email)
-          component.props.updateState();  
-         // component.props.setUserName(); 
-         component.props.setUserName();       
-          component.props.navigator("/");
+          component.props.updateState(true);  
+          component.props.navigator('/')          
         } else {
             component.setState({errMsgClass: 'alert alert-danger show', errMsg: 'Email or Password is incorrect'});
             return false; 
