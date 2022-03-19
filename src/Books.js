@@ -30,8 +30,8 @@ class Books extends Component {
         books: {},
         showAlert: false
     }
-    console.log("Env11")
-    console.log(process.env)
+    //console.log("Env11")
+    //console.log(process.env)
     this.loadBooks();   
    }
 
