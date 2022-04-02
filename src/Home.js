@@ -3,7 +3,8 @@ import Nav from './Nav';
 import Welcome from './Welcome';
 import Books from './Books';
 import RegisterSuccess from './RegisterSuccess';
-import Video from './Video'
+import Video from './Video';
+import './App.css'
 
 
 
@@ -11,7 +12,7 @@ import {BrowserRouter as Router, Routes, Route, Switch, BrowserRouter} from 'rea
 
 function Home() {
     return (
-      <div className="container-xl">
+      <div className="container banner">
         
           <BrowserRouter>
           <Nav />   

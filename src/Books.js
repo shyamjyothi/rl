@@ -9,10 +9,10 @@ import AWS from 'aws-sdk';
 
 //AWS Dynamo API Keys
 AWS.config.update({
-    region: process.env.REACT_APP_region,
-    accessKeyId: process.env.REACT_APP_accessKeyId,
-    secretAccessKey:  process.env.REACTAPP_secretAccessKey
-})
+    region: process.env.REACT_APP_AWS_REGION,
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+    secretAccessKey:  process.env.REACT_APP_AWS_SECRET_ACCESS_KEY
+  })
 
 //Constant Variables
 const dynamoClient = new AWS.DynamoDB.DocumentClient();
@@ -72,7 +72,7 @@ class Books extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-4">
-                        <h1>READERS LOG</h1>
+                      
                     </div>           
                     <div className="col-8 text-end" style={{marginTop:"6px"}} >
                         <button type="button" className="btn btn-primary btn-sm" onClick = {this.showAdd}>

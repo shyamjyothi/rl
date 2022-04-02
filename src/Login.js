@@ -5,18 +5,21 @@ import AWS from 'aws-sdk';
 import './App.css';
 import bcrypt from 'bcryptjs';
 
+
 //AWS Dynamo API Keys
 AWS.config.update({
-  region: process.env.REACT_APP_region,
-  accessKeyId: process.env.REACT_APP_accessKeyId,
-  secretAccessKey:  process.env.REACTAPP_secretAccessKey
+  region: process.env.REACT_APP_AWS_REGION,
+  accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+  secretAccessKey:  process.env.REACT_APP_AWS_SECRET_ACCESS_KEY
 })
+
+
+var secret = ""
+var decodedBinarySecret = ""
 
 const dynamoClient = new AWS.DynamoDB.DocumentClient();
 const TABLE_NAME = "rl_users"
 const saltRounds = 10;
-
-
 
 class Login extends Component {
 
@@ -47,6 +50,7 @@ class Login extends Component {
         this.setState({errMsgClass: 'alert alert-danger show', errMsg: 'Password is mandatory'});
         return false;
       }
+      console.log(process.env)
       return true;
     }
 

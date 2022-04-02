@@ -58,40 +58,39 @@ class Nav extends Component {
 
   render() {
       return (    
-        <div>       
-          <nav className="navbar navbar-expand-lg navbar-dark bg-dark">         
-              <a className="navbar-brand">
-                  <img src={rl_logo} alt="" width="42" height="42" className="d-inline-bloc align-text-center" />RL
-              </a>
-              <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-              </button>
-              <div className="collapse navbar-collapse" id="navbarText">
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">              
+        <div class="row">   
+          <div class="col-md-12">
+          <nav className="navbar navbar-dark bg-dark" >         
+              <div className="navbar-brand">READERS LOG</div>      
+                    
+                <ul className="nav">              
                     <li className="nav-item">
-                  <Link to="/" className="nav-link active">Home</Link>
+                  <Link to="/" className="nav-link active">HOME</Link>
                     </li>            
                   <li className="nav-item">
-                    <Link to="/books" className="nav-link active">Books</Link>
+                    <Link to="/books" className="nav-link active">BOOKS</Link>
                   </li>                
                 </ul>
-                <form className="d-flex">
+               <form className="d-flex">
                   <button className="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button" onClick={this.showRegister}>Register</button> &nbsp;&nbsp;
                   <button className="btn btn-sm btn-outline-light" data-bs-toggle="modal" data-bs-taget="#modalSignUp" type="button" onClick={this.showLogin}>Login</button>&nbsp;&nbsp;
                   
-                </form>
-                {/* Modal Popups Starts*/}
+              </form> 
+             
 
+              
 
+              
+          </nav> 
+
+             {/* Modal Popups Starts*/}
+
+             
                 { this.state.showLoginUI ? <RouteComponent setuserName={this.setUserName}  updateState={this.hideLogin} Component = {Login} /> : <div></div> }
                 { this.state.showRegisterUI ? <RouteComponent setuserName={this.setUserName}  updateState={this.hideRegister} Component = {Register} /> : <div></div> }
 
+              
                 {/*Modal Popups Ends*/}
-
-              
-              </div>
-              
-          </nav> 
 
         { this.state.userName != '' ? 
           <div className="nav justify-content-end">
@@ -103,6 +102,8 @@ class Nav extends Component {
           </svg>
             </div>
             </div> : <div></div> }
+
+            </div>
 
         </div>
       );

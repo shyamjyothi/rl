@@ -1,30 +1,34 @@
 
-import Home_1 from './HomeImage.png'
-import Home_2 from './HomeImage2.png'
+import {Component} from 'react'
 
 
-function Welcome() {
+class Welcome extends Component {
 
-  var userName = localStorage.getItem("rl_username");
+ // userName = localStorage.getItem("rl_username");
 
+  constructor(props) {
+    super(props)
+
+  }
+
+  
+
+    
+  render() {
     return (  
-
-      <div className="container">
-       
-        <main className="px-3 text-center">
-          <h1>READERS LOG</h1>
+    
+          <div class="col-md-6 offset-md-3 info">
+          <h1 class="text-center">READERS LOG</h1>
           <p className="lead">
-              <strong>Readers Log</strong> is a website where you can log the Books that you have read.
-              <strong>Readers Log</strong> would help you in keeping a track of the Books that you have read over the years.
-          </p>
-          <p className="lead">
-            <img src={Home_1} className="img-fluid" />
-            <img src={Home_2} className="img-fluid" />
-          </p>
+                <strong>Readers Log</strong> is a website where you can log the Books that you have read.
+                <strong>Readers Log</strong> would help you in keeping a track of the Books that you have read over the years.
+            </p>
+            
           
-        </main>
-      </div>
-    )
+          </div>     
+    
+      )
+  }
 
 }
 

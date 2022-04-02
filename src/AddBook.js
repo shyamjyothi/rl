@@ -6,10 +6,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 //AWS Dynamo API Keys
 AWS.config.update({
-    region: process.env.REACT_APP_region,
-    accessKeyId: process.env.REACT_APP_accessKeyId,
-    secretAccessKey:  process.env.REACTAPP_secretAccessKey
-})
+    region: process.env.REACT_APP_AWS_REGION,
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+    secretAccessKey:  process.env.REACT_APP_AWS_SECRET_ACCESS_KEY
+  })
 
 //Constant Variables
 const dynamoClient = new AWS.DynamoDB.DocumentClient();
