@@ -50,7 +50,7 @@ class Login extends Component {
         this.setState({errMsgClass: 'alert alert-danger show', errMsg: 'Password is mandatory'});
         return false;
       }
-      console.log(process.env)
+      //console.log(process.env)
       return true;
     }
 
